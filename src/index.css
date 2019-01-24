@@ -12,3 +12,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.tweet-text{
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.time-text{
+  font-size: 13px;
+  color: gray;
+}

@@ -8,8 +8,8 @@ class User extends Component {
     return (
       <Container>
         <h1>User Profile</h1>
-        <h2>{this.props.user.name}</h2>
-        <h2>{this.props.user.email}</h2>
+        <h2>Name: {this.props.user.name}</h2>
+        <h2>Email: {this.props.user.email}</h2>
         <h2>Post Count: {this.props.user.posts.length}</h2>
       </Container>
     )

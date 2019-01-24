@@ -29,10 +29,18 @@ class Posts extends Component {
   }
   PostTweet(e) {
     e.preventDefault();
+    const dateTime = Date.now();
+
     this.setState({
-      time : Date.now()
-    })
-    this.props.dispatch(userActions.AddPost(this.state));
+        time : dateTime
+      },
+      () =>{
+        this.props.dispatch(userActions.AddPost(this.state));
+        this.setState({text: ''});
+      }
+    );
+    
+
   }
 
   render() {
@@ -40,26 +48,25 @@ class Posts extends Component {
       <Container>
         <Card>
           <Card.Body> 
-
-
+          
           <Form onSubmit={this.PostTweet}>
             <Row>
               <Col sm={12}>
               <Form.Group controlId="formBasicEmail">
-
-                <Form.Control onChange={this.handleInputChange} name='text' as="textarea" rows="3" />
+                <Form.Control onChange={this.handleInputChange} value={this.state.text} maxLength='140' name='text' as="textarea" rows="3" />
               </Form.Group>
               </Col>
             </Row>
             <br></br>
             <Row>
-              <Col sm={{ span: 2, offset: 10 }}>
-
+              <Col sm={{ span: 2, offset: 8 }}>
+                {this.state.text.length}/140
+              </Col>
+              <Col sm={{ span: 2 }}>
                 <Button type="submit" variant="outline-primary" >Secondary</Button>
               </Col>
             </Row>
           </Form>
-
 
           </Card.Body>
         </Card>
